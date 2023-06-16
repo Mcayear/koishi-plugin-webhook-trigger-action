@@ -8,7 +8,15 @@
     "lib",
     "dist"
   ],
+  "contributors": [
+    "Mcayear <mcayear@163.com>"
+  ],
   "license": "MIT",
+  "homepage": "https://github.com/Mcayear/koishi-plugin-webhook-trigger-action",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mcayear/koishi-plugin-webhook-trigger-action.git"
+  },
   "scripts": {
     "build": "atsc -b",
     "pub": "npm publish"

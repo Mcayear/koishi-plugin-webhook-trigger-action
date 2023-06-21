@@ -72,19 +72,21 @@ export function apply(ctx: Context, config: Config) {
       }
       next();
     }, (c)=>{
+      let body = JSON.parse(JSON.stringify(c.request.query))
       for (let bot of ctx.bots) {
         for (let rep of item.response) {
           if (bot.platform != rep.platform && bot.username != rep.username) {// 过滤机器人平台，用户名
             continue;
           }
-          sendResponseMsg(bot, rep.platform, rep, c.body ? JSON.parse(<string>c.body) : {});
+          sendResponseMsg(bot, rep.platform, rep, body ? body : {});
           return c.status = 200;
         }
       }
-      return c.status = 501;
+      return c.status = 405;
     });
     
     if (item.method === "post") ctx.router.post(path, (c, next)=>{
+      logger.info("接收到post请求："+path)
       for (let httpheader in config.headers) {// 检查头，如果不相等则返回400
         if (c.header[httpheader] != config.headers[httpheader]) return c.status = 400;
       }
@@ -95,11 +97,11 @@ export function apply(ctx: Context, config: Config) {
           if (bot.platform != rep.platform && bot.username != rep.username) {// 过滤机器人平台，用户名
             continue;
           }
-          sendResponseMsg(bot, rep.platform, rep, c.body ? JSON.parse(<string>c.body) : {});
+          sendResponseMsg(bot, rep.platform, rep, c.request.body ? c.request.body : {});
           return c.status = 200;
         }
       }
-      return c.status = 501;
+      return c.status = 405;
     });
   }
 }

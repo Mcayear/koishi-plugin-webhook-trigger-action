@@ -45,18 +45,18 @@ function sendResponseMsg(bot: Bot<Bot.Config>, platform: string, rep: responseTy
   }
   if (rep.private) {
     rep.seeisonId.forEach(element => {
-      bot.sendPrivateMessage(element, rep.msg.join("\n"));
+      bot.sendPrivateMessage(element, msg);
     });
     return;
   }
   if (platform === "onebot") {
     rep.seeisonId.forEach(element => {
-      bot.internal.sendGroupMsg(<number><unknown>element, rep.msg.join("\n"));
+      bot.internal.sendGroupMsg(<number><unknown>element, msg);
     });
     return;
   }
   rep.seeisonId.forEach(element => {
-    bot.sendMessage(element, rep.msg.join("\n"));
+    bot.sendMessage(element, msg);
   });
 }
 

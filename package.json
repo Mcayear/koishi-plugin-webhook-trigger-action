@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-webhook-trigger-action",
   "description": "监听指定路径上的网络请求，并向指定平台发送信息",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
@@ -27,6 +27,24 @@
     "webhook"
   ],
   "peerDependencies": {
-    "koishi": "^4.13.1"
+    "koishi": "^4.17.3"
+  },
+  "devDependencies": {
+    "@koishijs/plugin-server": "^3.1.8"
+  },
+  "koishi": {
+    "description": {
+      "en": "Listen for network requests on a specified path and send messages to a designated platform.",
+      "zh": "监听指定路径上的网络请求，并向指定平台发送信息"
+    },
+    "service": {
+      "required": [
+        "server"
+      ]
+    },
+    "locales": [
+      "en",
+      "zh"
+    ]
   }
 }

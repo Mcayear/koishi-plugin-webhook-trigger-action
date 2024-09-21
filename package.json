@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-webhook-trigger-action",
   "description": "监听指定路径上的网络请求，并向指定平台发送信息",
-  "version": "1.2.1",
+  "version": "1.2.4",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
@@ -27,11 +27,11 @@
     "webhook"
   ],
   "peerDependencies": {
-    "koishi": "^4.17.3"
+    "koishi": "^4.17.12"
   },
   "devDependencies": {
     "@koishijs/plugin-adapter-onebot": "^6.0.2",
-    "@koishijs/plugin-server": "^3.1.8"
+    "@koishijs/plugin-server": "^3.2.3"
   },
   "koishi": {
     "description": {

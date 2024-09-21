@@ -30,8 +30,8 @@
     "koishi": "^4.17.12"
   },
   "devDependencies": {
-    "@koishijs/plugin-adapter-onebot": "^6.0.2",
-    "@koishijs/plugin-server": "^3.2.3"
+    "@koishijs/plugin-server": "^3.2.3",
+    "koishi-plugin-adapter-onebot": "^6.7.2"
   },
   "koishi": {
     "description": {

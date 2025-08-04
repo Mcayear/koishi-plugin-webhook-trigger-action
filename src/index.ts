@@ -105,9 +105,9 @@ export function apply(ctx: Context, config: Config) {
 				path,
 				(c, next) => {
 					logger.info("接收到get请求：" + path);
-					for (let httpheader in config.headers) {
+					for (let httpheader in config[path].headers) {
 						// 检查头，如果不相等则返回400
-						if (c.header[httpheader] != config.headers[httpheader])
+						if (c.header[httpheader.toLowerCase()] != config[path].headers[httpheader])
 							return (c.status = 400);
 					}
 					next();
@@ -136,9 +136,9 @@ export function apply(ctx: Context, config: Config) {
 				path,
 				(c, next) => {
 					logger.info("接收到post请求：" + path);
-					for (let httpheader in config.headers) {
+					for (let httpheader in config[path].headers) {
 						// 检查头，如果不相等则返回400
-						if (c.header[httpheader] != config.headers[httpheader])
+						if (c.header[httpheader.toLowerCase()] != config[path].headers[httpheader])
 							return (c.status = 400);
 					}
 					next();
